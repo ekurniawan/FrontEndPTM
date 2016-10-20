@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontEndPTM.LoginPage" Title="Login Page">
+  <StackLayout>
+    <Label Text="Username :" FontSize="Medium" />
+    <Entry Placeholder="Username" x:Name="entryUsername" />
+    <Label Text="Password :" FontSize="Medium" />
+    <Entry x:Name="entryPassword" IsPassword="True" />
+    <Button x:Name="btnLogin" Text="Login" />
+  </StackLayout>
+</ContentPage>

@@ -12,7 +12,6 @@ namespace FrontEndPTM
         public App()
         {
             InitializeComponent();
-
             MainPage = new FrontEndPTM.MainPage();
         }
 
