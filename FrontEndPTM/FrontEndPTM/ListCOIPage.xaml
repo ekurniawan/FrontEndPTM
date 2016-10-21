@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontEndPTM.ListCOIPage" Title="Daftar COI">
+  <ListView ItemsSource="{Binding COIDetails}" x:Name="myListView">
+     <ListView.Header>
+       <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="100"/>
+              <ColumnDefinition Width="130"/>
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Text="COI Number" FontSize="Medium" Grid.Column="0" BackgroundColor="Yellow" FontAttributes="Bold" />
+            <Label Text="Polis Number" FontSize="Medium" Grid.Column="1" FontAttributes="Bold" BackgroundColor="Yellow"   />
+            <Label Text="Status" FontSize="Medium" Grid.Column="2" HorizontalOptions="EndAndExpand" BackgroundColor="Yellow" FontAttributes="Bold" />
+          </Grid>
+     </ListView.Header>
+     <ListView.ItemTemplate>  
+      <DataTemplate>
+        <ViewCell>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="100"/>
+              <ColumnDefinition Width="130"/>
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Label Text="{Binding COINumber}" FontSize="Medium" Grid.Column="0" FontAttributes="Bold" />
+            <Label Text="{Binding PolNumber}" FontSize="Medium" Grid.Column="1" FontAttributes="Bold"   />
+            <Label Text="{Binding TipeStatus.NamaTipe}" FontSize="Medium" Grid.Column="2" HorizontalOptions="EndAndExpand" FontAttributes="Bold" TextColor="Red"  />
+          </Grid>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+</ContentPage>

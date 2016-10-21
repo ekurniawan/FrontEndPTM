@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FrontEndPTM.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,10 @@ namespace FrontEndPTM
         public App()
         {
             InitializeComponent();
-            MainPage = new FrontEndPTM.MainPage();
+
+            Application.Current.Properties["profil"] = new Pengguna();
+
+            MainPage = new NavigationPage(new LoginPage());
         }
 
         protected override void OnStart()

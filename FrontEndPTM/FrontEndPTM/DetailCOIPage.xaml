@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FrontEndPTM.DetailCOIPage" Title="Detail COI">
+  <ContentPage.Content>
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <Grid.RowDefinitions>
+        <RowDefinition Height="50" />
+        <RowDefinition Height="50" />
+        <RowDefinition Height="50" />
+        <RowDefinition Height="50" />
+        <RowDefinition Height="50" />
+        <RowDefinition Height="50" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+
+      <Label Text="COI Number" FontSize="Medium" Grid.Column="0" Grid.Row="0" HorizontalOptions="EndAndExpand"
+             FontAttributes="Bold" />
+      <Label Text="{Binding COINumber}" FontSize="Medium" Grid.Column="1" Grid.Row="0" HorizontalOptions="EndAndExpand" />
+
+      <Label Text="Polis Number" FontSize="Medium" Grid.Column="0" Grid.Row="1" HorizontalOptions="EndAndExpand"
+             FontAttributes="Bold" />
+      <Label Text="{Binding PolNumber}" FontSize="Medium" Grid.Column="1" Grid.Row="1" HorizontalOptions="EndAndExpand" />
+
+      <Label Text="Status" FontSize="Medium" Grid.Column="0" Grid.Row="2" HorizontalOptions="EndAndExpand"
+             FontAttributes="Bold" />
+      <Label Text="{Binding TipeStatus.NamaTipe}" FontSize="Medium" Grid.Column="1" Grid.Row="2" HorizontalOptions="EndAndExpand" />
+
+      <Label Text="Destination Port" FontSize="Medium" Grid.Column="0" Grid.Row="3" HorizontalOptions="EndAndExpand"
+            FontAttributes="Bold" />
+      <Label Text="{Binding DestinationPort}" FontSize="Medium" Grid.Column="1" Grid.Row="3" HorizontalOptions="EndAndExpand" />
+
+      <Label Text="Vessel Name" FontSize="Medium" Grid.Column="0" Grid.Row="4" HorizontalOptions="EndAndExpand"
+           FontAttributes="Bold" />
+      <Label Text="{Binding VesselName}" FontSize="Medium" Grid.Column="1" Grid.Row="4" HorizontalOptions="EndAndExpand" />
+
+      <Button x:Name="btnStatusPrev" Grid.Column="0" Grid.Row="5" />
+      <Button x:Name="btnStatusNext" Grid.Column="1" Grid.Row="5" />
+    </Grid>
+  </ContentPage.Content>
+  
+</ContentPage>
