@@ -37,7 +37,7 @@ namespace FrontEndPTM
             btnStatusPrev.Text = statusPrev.NamaTipe;
 
             TipeStatus statusNext = await tipeStatusServices.GetStatusNext(IdTipeStatusInt.ToString());
-            btnStatusNext.Text = statusPrev.NamaTipe;
+            btnStatusNext.Text = statusNext.NamaTipe;
         }
 
         public DetailCOIPage(int idTipeStatus)

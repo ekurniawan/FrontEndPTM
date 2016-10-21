@@ -10,9 +10,13 @@ namespace FrontEndPTM
 {
     public partial class App : Application
     {
+       
+
         public App()
         {
             InitializeComponent();
+
+
 
             Application.Current.Properties["profil"] = new Pengguna();
 
