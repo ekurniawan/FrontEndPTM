@@ -19,6 +19,7 @@ namespace FrontEndPTM
 
 
             Application.Current.Properties["profil"] = new Pengguna();
+            Application.Current.Properties["status"] = string.Empty;
 
             MainPage = new NavigationPage(new LoginPage());
         }

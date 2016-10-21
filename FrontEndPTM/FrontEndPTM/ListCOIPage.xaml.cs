@@ -17,22 +17,26 @@ namespace FrontEndPTM
             InitializeComponent();
         }
 
+        private string status=string.Empty;
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            string status = (string)Application.Current.Properties["status"];
+            BindingContext = new ListCOIViewModel(status);
+        }
+
         public ListCOIPage(string status)
         {
             InitializeComponent();
-            BindingContext = new ListCOIViewModel(status);
-
-
+            Application.Current.Properties["status"] = status;
             myListView.ItemTapped += MyListView_ItemTapped;
         }
 
         private void MyListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             COIDetail result = (COIDetail)e.Item;
-            DetailCOIPage detailPage = new DetailCOIPage(result.IdTipeStatus);
+            DetailCOIPage detailPage = new DetailCOIPage();
             detailPage.BindingContext = result;
-            
-            
             Navigation.PushAsync(detailPage);
         }
     }

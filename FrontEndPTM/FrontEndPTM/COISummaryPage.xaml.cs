@@ -12,11 +12,17 @@ namespace FrontEndPTM
 {
     public partial class COISummaryPage : ContentPage
     {
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            BindingContext = new COIStatusViewModel();
+        }
+
         public COISummaryPage()
         {
             InitializeComponent();
 
-            BindingContext = new COIStatusViewModel();
+            //BindingContext = new COIStatusViewModel();
 
             myListView.ItemTapped += MyListView_ItemTapped;
         }

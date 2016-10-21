@@ -51,6 +51,14 @@ namespace FrontEndPTM.Services
             return response.Data;
         }
 
+        public async void Update(string id, COIDetail model)
+        {
+            var request = new RestRequest(string.Format("api/COIDetail/{0}", id), Method.PUT);
+            request.AddBody(model);
+
+            var response = await _client.Execute(request);
+        }
+
 
     }
 }

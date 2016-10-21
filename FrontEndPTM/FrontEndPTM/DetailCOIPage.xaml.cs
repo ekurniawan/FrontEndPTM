@@ -25,26 +25,26 @@ namespace FrontEndPTM
         //    //await DisplayAlert("Keterangan", "COI " + result.COINumber, "OK");
         //}
 
-        private int IdTipeStatusInt;
+       
 
         async void GetData()
         {
+            COIDetail data = (COIDetail)BindingContext;
+
             TipeStatusService tipeStatusServices = new TipeStatusService();
 
             //await DisplayAlert("Keterangan", "Tipe Status " + IdTipeStatusInt.ToString(), "OK");
 
-            TipeStatus statusPrev = await tipeStatusServices.GetStatusPrev(IdTipeStatusInt.ToString());
+            TipeStatus statusPrev = await tipeStatusServices.GetStatusPrev(data.IdTipeStatus.ToString());
             btnStatusPrev.Text = statusPrev.NamaTipe;
 
-            TipeStatus statusNext = await tipeStatusServices.GetStatusNext(IdTipeStatusInt.ToString());
+            TipeStatus statusNext = await tipeStatusServices.GetStatusNext(data.IdTipeStatus.ToString());
             btnStatusNext.Text = statusNext.NamaTipe;
         }
 
-        public DetailCOIPage(int idTipeStatus)
+        public DetailCOIPage()
         {
             InitializeComponent();
-
-            IdTipeStatusInt = idTipeStatus;
 
             GetData();
             //var result = new DetailCOIViewModel(coiNumber).COIDetailItem;
@@ -55,8 +55,32 @@ namespace FrontEndPTM
 
 
             //DisplayAlert("Keterangan", "COI " + result. ,"OK");
+
+            btnStatusPrev.Clicked += BtnStatusPrev_Clicked;
+            btnStatusNext.Clicked += BtnStatusNext_Clicked;
         }
 
-        
+        private async void BtnStatusNext_Clicked(object sender, EventArgs e)
+        {
+            COIService coiService = new COIService();
+            COIDetail updateCoi = (COIDetail)BindingContext;
+
+            updateCoi.IdTipeStatus += 1;
+
+            coiService.Update(updateCoi.COINumber, updateCoi);
+
+            await Navigation.PopAsync();
+        }
+
+        private async void BtnStatusPrev_Clicked(object sender, EventArgs e)
+        {
+            COIService coiService = new COIService();
+            COIDetail updateCoi = (COIDetail)BindingContext;
+            updateCoi.IdTipeStatus -= 1;
+
+            coiService.Update(updateCoi.COINumber, updateCoi);
+
+            await Navigation.PopAsync();
+        }
     }
 }
